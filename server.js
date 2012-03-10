@@ -3,10 +3,9 @@ var url = require("url");
 
 function start(route) {
   function onRequest(request, response) {
-    var pathname = url.parse(request.url).pathname;
-    console.log(request.method, pathname);
+    console.log(request.method, request.url);
 
-    route(pathname);
+    route(request.url);
 
     response.writeHead(200, { "content-Type":  "text/plain" });
     response.write("Hello World");
