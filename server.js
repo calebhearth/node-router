@@ -1,8 +1,13 @@
 var http = require("http");
+var url = require("url");
 
-function start() {
+function start(route) {
   function onRequest(request, response) {
-    console.log(request.method, request.url);
+    var pathname = url.parse(request.url).pathname;
+    console.log(request.method, pathname);
+
+    route(pathname);
+
     response.writeHead(200, { "content-Type":  "text/plain" });
     response.write("Hello World");
     response.end();
