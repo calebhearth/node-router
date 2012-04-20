@@ -1,4 +1,4 @@
-function handle(querystring) {
+function handle(response, querystring) {
   console.log("404'd");
 }
 

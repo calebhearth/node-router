@@ -20,7 +20,7 @@ function getController(resource) {
   return controller;
 }
 
-function route(url) {
+function route(url, response) {
   if (url == '/') { getController('index').handle(); }
   else {
     parts = url.split('/');
@@ -31,7 +31,7 @@ function route(url) {
     queryParts = parts.slice(2);
     console.log("resource:", resource);
     console.log("query:", queryParts);
-    getController(resource).handle(queryParts);
+    getController(resource).handle(response, queryParts);
   }
 }
 exports.route = route;

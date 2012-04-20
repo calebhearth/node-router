@@ -5,11 +5,7 @@ function start(route) {
   function onRequest(request, response) {
     console.log(request.method, request.url);
 
-    route(request.url);
-
-    response.writeHead(200, { "content-Type":  "text/plain" });
-    response.write("Hello World");
-    response.end();
+    route(request.url, response);
   }
 
   http.createServer(onRequest).listen(8888);
@@ -18,4 +14,3 @@ function start(route) {
 }
 
 exports.start = start;
-
